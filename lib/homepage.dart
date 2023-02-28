@@ -41,8 +41,8 @@ class Myhomepage extends StatelessWidget {
                           TextStyle(fontSize: 40, fontWeight: FontWeight.w700),
                     )),
               ),
-              Padding(
-                padding: const EdgeInsets.all(40.0),
+              const Padding(
+                padding: EdgeInsets.all(40.0),
                 child: SearchBox(),
               )
             ],
