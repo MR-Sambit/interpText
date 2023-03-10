@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import 'View/cambutton_1.dart';
+
 class CamButton extends StatefulWidget {
   const CamButton({super.key});
 
@@ -15,6 +17,7 @@ class _CamButtonState extends State<CamButton> {
     return InkWell(
       onTap: () {
         // Perform camera action
+        camBState();
       },
       child: Padding(
         padding: const EdgeInsets.all(45),
