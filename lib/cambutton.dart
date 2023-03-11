@@ -1,8 +1,6 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-
-import 'View/cambutton_1.dart';
+import 'package:inter/View/OpenCam.dart';
 
 class CamButton extends StatefulWidget {
   const CamButton({super.key});
@@ -12,12 +10,56 @@ class CamButton extends StatefulWidget {
 }
 
 class _CamButtonState extends State<CamButton> {
+  late CameraController controller;
+  void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          height: 150.0,
+          child: Center(
+            child: Column(
+              children: [
+                SizedBox(height: 16),
+                Text('Select A Option  '),
+                SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () async {
+                        await OpenCam(controller);
+                      },
+                      child: Text(
+                        'Camera',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Do something when the user taps the second button
+                      },
+                      child: Text(
+                        'Gallary ',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         // Perform camera action
-        camBState();
+        _showBottomSheet(context);
       },
       child: Padding(
         padding: const EdgeInsets.all(45),
