@@ -21,27 +21,32 @@ class _CamButtonState extends State<CamButton> {
             child: Column(
               children: [
                 SizedBox(height: 16),
-                Text('Select A Option  '),
+                Text(
+                  'Select A Option',
+                  style: TextStyle(color: Colors.lightBlueAccent, fontSize: 20),
+                ),
                 SizedBox(height: 16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
+                    IconButton(
                       onPressed: () async {
                         await OpenCam(controller);
                       },
-                      child: Text(
-                        'Camera',
-                        style: TextStyle(fontSize: 20),
+                      icon: Icon(
+                        Icons.camera_alt_outlined,
+                        size: 45,
+                        color: Color.fromARGB(255, 85, 227, 161),
                       ),
                     ),
-                    ElevatedButton(
+                    IconButton(
                       onPressed: () {
                         // Do something when the user taps the second button
                       },
-                      child: Text(
-                        'Gallary ',
-                        style: TextStyle(fontSize: 20),
+                      icon: Icon(
+                        Icons.browse_gallery_rounded,
+                        size: 45,
+                        color: Color.fromARGB(255, 85, 227, 161),
                       ),
                     ),
                   ],
